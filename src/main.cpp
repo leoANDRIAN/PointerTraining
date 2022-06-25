@@ -1,8 +1,9 @@
 #include "iostream";
+#include "memory.h";
 
 using namespace std;
 
-// Explicit pointers (can be used with &targetedVar on function call)
+// Explicit pointers (can be used with &targetedVar too on function call)
 void division(int a, int b, int *res, int *rest) {
     *res = a / b;
     *rest = a % b;
@@ -41,10 +42,16 @@ int main() {
     cout << endl;
     
     // Without explicit pointer (direct REFERENCE to targetedVar --> syntaxic sugar)
-    a = 9;
+    a = 10;
+    b = 4;
     division2(a, b, res, rest);
 
     cout << a << " / " << b << " division2() :" << endl;
     cout << "res = " << res << endl;
     cout << "rest = " << rest << endl;
+
+    // ADVANCED (smart pointers)
+    // UNIQUE_PTR
+    auto uPtr = make_unique<int>(new int(5));
+    
 }
